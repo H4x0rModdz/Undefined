@@ -10,13 +10,13 @@ namespace Undefined.UnitTests.Users
     public class GetUserByIdTests
     {
         private readonly Mock<IUserRepository> _mockUserRepository;
-        private readonly Mock<ILogger<AuthController>> _loggerMock;
+        private readonly Mock<ILogger<UserController>> _loggerMock;
         private readonly UserController _controller;
 
         public GetUserByIdTests()
         {
             _mockUserRepository = new Mock<IUserRepository>();
-            _loggerMock = new Mock<ILogger<AuthController>>();
+            _loggerMock = new Mock<ILogger<UserController>>();
             _controller = new UserController(_mockUserRepository.Object, _loggerMock.Object);
         }
 
