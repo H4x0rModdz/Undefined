@@ -37,6 +37,9 @@ namespace Undefined.WebApi.Controllers
                 return BadRequest();
             }
 
+            if (!string.IsNullOrEmpty(user.Password))
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
             var updatedUser = await _userRepository.UpdateUserAsync(id, user);
             if (updatedUser is null)
             {
